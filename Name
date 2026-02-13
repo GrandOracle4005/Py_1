@@ -1,0 +1,9 @@
+name = "Sam Aaron C. Mije"
+age = "19"
+height = "1.73"
+job = False
+
+print("Name:", name)
+print("Age:", age)
+print("Height:", height)
+print("Have a Job?:", job)
