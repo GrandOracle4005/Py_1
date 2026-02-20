@@ -1,0 +1,21 @@
+print("Find the Largest Number")
+
+def findLargest():
+    a = int(input("Enter the First number: "))
+    b = int(input("Enter the Second number: "))
+    c = int(input("Enter the Third number: "))
+    
+    if a > b and a > c:
+        print("First Number is the largest")
+    elif b > a and b > c:
+        print("Second Number is the largest")
+    elif c > a and c > b:
+        print("Third Number is the largest")
+    elif a == b and a > c:
+        print("First and Second Number are the largest")
+    elif a == c and a > b:
+        print("First and Third Number are the largest")
+    elif b == c and b > a:
+        print("Second and Third Number are the largest")
+    else:
+        print("All numbers are equal")
