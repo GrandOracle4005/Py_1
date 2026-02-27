@@ -1,0 +1,59 @@
+users = []
+
+while True:
+    print("\n===CRUD SYSTEM===")
+    print("[1] Show Users")
+    print("[2] Add User")
+    print("[3] Update User")
+    print("[4] Delete User")
+    print("[5] Exit")
+    
+    choice = input("Enter your choices [1-5]: ")
+    if choice == "1":
+        if len(users) == 0:
+            print("No user found.")
+        else:
+            print("\nUser List:")
+            for i in range(len(users)):
+                print(i, "-", users[i])
+                
+    elif choice == "2":
+        new_users = input("Enter new Username: ")
+        users.append(new_users)
+        print("User added successfully")
+    
+    elif choice == "3":
+        if len(users) == 0:
+            print("No user to update")
+        else:
+            for i in range(len(users)):
+                print(i, "-", users[i])
+                
+            index = int(input("Enter user to Update: "))
+            if 0 <= index < len(users):
+                new_names = input("Enter new name: ")
+                users[index] = new_names
+                print("User Updated")
+            else:
+                print("Invalid User")
+                
+    elif choice == "4":
+        if len(users) == 0:
+            print("No user to delete")
+        else:
+            for i in range(len(users)):
+                print(i, "-", users[i])
+                
+            index = int(input("Enter user to delete: "))
+            if 0 <= index < len(users):
+                users.remove(index)
+                print("User deleted")
+            else:
+                print("Invalid User")
+                
+    elif choice == "5":
+        print(" Exit Program...")
+        break
+    
+    else:
+        Print("Invalid Choice. Try again")
