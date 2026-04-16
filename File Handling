@@ -1,0 +1,55 @@
+def create_file():
+    try:
+        file = open("message.txt", "x")
+        print("File created successfully!")
+        file.close()
+    except FileExistsError:
+        print("Error: File already exists.")
+
+
+def send_message():
+    try:
+        message = input("Enter your message: ")
+        with open("message.txt", "a") as file: 
+            file.write(message + "\n")
+        print("Message saved!")
+    except Exception as e:
+        print("Error writing to file:", e)
+
+
+def view_messages():
+    try:
+        with open("message.txt", "r") as file:
+            messages = file.readlines()
+            if not messages:
+                print("No messages yet.")
+            else:
+                print("\n--- Messages ---")
+                for msg in messages:
+                    print(msg.strip())
+                print("----------------")
+    except FileNotFoundError:
+        print("Error: File not found.")
+
+
+def menu():
+    while True:
+        print("\n=== File Handling Messenger ===")
+        print("1. Send a message")
+        print("2. View messages")
+        print("3. Exit")
+
+        choice = input("Pick an option: ")
+
+        if choice == "1":
+            send_message()
+        elif choice == "2":
+            view_messages()
+        elif choice == "3":
+            print("Exiting program...")
+            break
+        else:
+            print("Error choice. Try again.")
+            
+create_file()
+menu()
